@@ -1,14 +1,14 @@
 --problema 1
---Defina uma	 função	 recursiva	 para	 o	 cálculo	 de	 potência	 de dois	
---números	inteiros,	onde	o	primeiro	número	é	elevado	ao	segundo.	Não	
---se	pode	usar	o	operador	de	potência	(^).
+--Defina uma função	recursiva para o cálculo de	 potência de dois	
+--números inteiros,onde	o primeiro número	é elevado ao segundo. Não	
+--se pode usar o operador de potência.
 potencia :: Int -> Int -> Int
 potencia _ 0 = 1
 potencia b e = b * potencia b (e-1)
 
 
 --problema 2
---Calcular	o	somatório dos	elementos	ímpares de	uma	lista	de	inteiros
+--Calcular o somatório dos elementos ímpares de	uma	lista de inteiros
 somaImpares :: [Int] -> Int
 somaImpares [] = 0
 somaImpares (a:x)
@@ -17,8 +17,8 @@ somaImpares (a:x)
 
 		
 --problema 3
---Substituir	 todos	 elementos	 de	 um	 determinado	 valor de	 uma	lista	 de	
---inteiros	por	um	outro	valor
+--Substituir todos elementos de	um determinado valor de uma lista de	
+--inteiros por um outro valor
 substituir :: Int -> Int -> [Int] -> [Int]
 substituir _ _ []    = []
 substituir a b (z:c)
@@ -27,7 +27,7 @@ substituir a b (z:c)
 
 		
 --problema 4		
---Verificar	se	um	número	é	primo.
+--Verificar se um número é primo.
 primo :: Int -> Bool
 primo 0 = False
 primo 1 = False
@@ -45,8 +45,8 @@ existeDivisor a (b:c)
 		
 
 --problema 5		
---Verifique	 se	 um	 número é	 perfeito,	 isto	 é,	 é	 igual	 a	 soma	 de	 seus	
---divisores	(exceto	o	próprio número).
+--Verifique	se um número é perfeito, isto é, é igual a soma de seus	
+--divisores (exceto	o próprio número).
 perfeito :: Int -> Bool
 perfeito 0 = True
 perfeito a = semelhantes a ( somaLista (listaDivisores a [ i | i <- [1..(a-1)] ] ) )
@@ -68,8 +68,9 @@ listaDivisores a (b:c)
         | a `mod` b == 0 = [b] ++ listaDivisores a c
         | otherwise      = listaDivisores a c
 
+				
 --problema 6
---Função	que	 retorna	uma	lista	com	a	 representação	em	binário	de	um	
+--Função que retorna uma lista com a representação em binário de um	
 --número	inteiro.
 binario :: Int -> [Int]
 binario 0 = [0]
@@ -77,12 +78,8 @@ binario 1 = [1]
 binario a = binario ( a `div` 2) ++ [ a `mod` 2 ] 
 
 
-
-
-
-
 --problema 7
---Verificar	se	todos	os	elementos	de	uma	lista	são	distintos.
+--Verificar	se todos os	elementos de uma lista são	distintos.
 distintos :: [Int] -> Bool
 distintos [] = True
 distintos a = not ( true (tamanhoLista a) (igual a a) )
@@ -122,11 +119,8 @@ tamanhoLista [] = 0
 tamanhoLista (a:b) = 1 + tamanhoLista b
 
 
-
-
-
 --problema 8
---Verificar	se	duas	listas	são	disjuntas
+--Verificar	se duas listas são disjuntas
 disjuntas :: [Int] -> [Int] -> Bool
 disjuntas    []  [] = False
 disjuntas     a  [] = True
@@ -142,9 +136,8 @@ existeNumLista a (b:c)
         | otherwise = existeNumLista a c
 		
 
-		
 --problema 9
---Verificar	se	uma	lista	de	inteiros	é	palíndromo.
+--Verificar se uma lista de	inteiros é palíndromo.
 palindromo :: [Int] -> Bool
 palindromo [] = True
 palindromo a  = comparaListas a z
@@ -165,7 +158,7 @@ inverteLista (a:b)  = inverteLista b ++ [a]
 
 
 --questao 10
---Calcular	todas	as	somas	parciais	de	uma	lista	de	inteiros.
+--Calcular todas as somas parciais de uma lista	de inteiros.
 somaParciais :: [Int] -> [Int]
 somaParciais    [] = []
 somaParciais    a = make ( inverteLista a)
@@ -182,14 +175,16 @@ somaElementosLista :: [Int] -> Int
 somaElementosLista [] = 0
 somaElementosLista (a:b) = a + somaElementosLista b
 
+
 --questao 11
---Linearizar	uma	lista	de	listas	de	inteiros
+--Linearizar uma lista de listas de inteiros
 linearizar :: [[Int]] -> [Int]
 linearizar []          = []
 linearizar (a:b)       = a ++ linearizar b
 
+
 --questao 12
---Deslocar todos	 elementos	 de	 uma	 lista	 de	 inteiros	 k	 posições	 para	 a esquerda.
+--Deslocar todos elementos de uma lista de inteiros k posições para a esquerda.
 shift :: Int -> [Int] -> [Int]
 shift _ [] = []
 shift a b = (tiraNprimeiros a b) ++ (mantemNprimeiros a b)
@@ -203,9 +198,10 @@ tiraNprimeiros _ [] = []
 tiraNprimeiros a (b:c)
         | a == 0    = [b] ++ c
         | otherwise = tiraNprimeiros (a-1) c
+
 		
 --problema 13
---Remover	os	n	últimos	elementos	de	uma	lista	de	inteiros.
+--Remover os n últimos	elementos de	uma	lista de inteiros.
 removerFim :: Int -> [Int] -> [Int]
 removerFim _ [] = []
 removerFim 0  z = z
@@ -220,27 +216,26 @@ inverteLista :: [Int] -> [Int]
 inverteLista [] = []
 inverteLista (a:b) = inverteLista b ++ [a]
 
+
 --problema 14
---Dadas	duas	listas	ordenadas	de	forma	crescente,	obter	a	
---lista	ordenada	resultante	da	intercalação	delas.
+--Dadas	duas listas	ordenadas de forma crescente,obter a	
+--lista	ordenada resultante	da intercalação delas.
 intercalar :: [Int] -> [Int] -> [Int]
 intercalar [] [] = []
 intercalar  a [] = qsort a
 intercalar []  b = qsort b
 intercalar  a  b = qsort ( a ++ b )
-
 qsort :: [Int] -> [Int]
 qsort [] = []
 qsort (a:x) = qsort [ b | b <- x, b <= a ] ++ [a] ++ qsort [ b | b <- x, b > a ]
 
+
 --problema 15
---Desenvolver	uma	solução	para	um	quiosque	de	saque	eletrônico	que,	
---para	um	determinado	valor,	deve	entregar	o	menor	número	de	cédulas	
---de	R$1,	R$5,	R$10,	R$50	e	R$100,	da	menor para	a	maior.
+--Desenvolver uma solução para um quiosque de saque eletrônico que,	
+--para um determinado valor,deve entregar o menor número de cédulas	
+--de R$1, R$5, R$10, R$50 e R$100, da menor para a maior.
 trocar :: Int -> [Int]
 trocar n = qsort (make n)
-
-
 --funcao que faz a lista com o valores de cedulas
 make :: Int -> [Int]
 make 0 = []
@@ -250,11 +245,9 @@ make n
         | modN n 10  == 0 = make (n-10)  ++ [10]
         | modN n 5   == 0 = make (n-50)  ++ [5]
         | otherwise       = make (n-1)   ++ [1]
-
 --funcao de modulo
 modN :: Int -> Int -> Int
 modN a  b = a `mod` b
-
 qsort :: [Int] -> [Int]
 qsort [] = []
 qsort (a:x) = qsort [ b | b <- x, b <= a ] ++ [a] ++ qsort [ b | b <- x, b > a ]
